@@ -5,7 +5,7 @@ class Header extends Component {
   constructor() {
     super();
     this.state = {
-      userInfo: [],
+      userInfo: {},
     };
   }
 
