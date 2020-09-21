@@ -1,5 +1,5 @@
-import React, { Compornent } from "react";
-import { screen, render, waitForElement } from "@testing-library/react";
+import React from "react";
+import { screen, render } from "@testing-library/react";
 import Header from "./Header";
 import mockResponse from "../__mocks__/github_response.json";
 
@@ -12,7 +12,6 @@ global.fetch = jest.fn().mockImplementation(() => {
 
 test("Renders my name on the screen from api call", async () => {
   render(<Header />);
-  const myName = await waitForElement(() => screen.getByText("Chris Cooney"));
-  //Should use waitFor instead of waitForElement but it requires updating testing libraries
+  const myName = await screen.findByText("Chris Cooney");
   expect(myName).toBeInTheDocument();
 });
