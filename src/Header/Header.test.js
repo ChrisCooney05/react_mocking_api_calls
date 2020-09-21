@@ -4,7 +4,7 @@ import Header from "./Header";
 import mockResponse from "../__mocks__/github_response.json";
 
 // mock fetch and return the mock response json
-jest.spyOn(global, "fetch").mockImplementation(() => {
+global.fetch = jest.fn().mockImplementation(() => {
   return Promise.resolve({
     json: () => Promise.resolve(mockResponse),
   });
